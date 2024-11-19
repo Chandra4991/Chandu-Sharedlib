@@ -13,7 +13,7 @@ class K8s {
         echo "********************* Entering into Kubernetes Authentication/Login Method *********************"
         gcloud compute instances list
         echo "********************* Get the K8S Node *********************"
-        gcloud container clusters get-credentials i27-cluster --zone us-central1-c --project future-depth-439107-m2
+        gcloud container clusters get-credentials i27-cluster --zone us-central1-c --project fine-climber-412705
         kubectl get nodes
         """
     }
