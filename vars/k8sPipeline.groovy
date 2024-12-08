@@ -98,35 +98,6 @@ def call(Map pipelineParams){
                     }
                 }
             }
-            stage ('Sonar') {
-                when {
-                    expression {
-                        params.scanOnly == 'yes'
-                    }
-                    // anyOf {
-                    //     expression {
-                    //         params.scanOnly == 'yes'
-                    //         params.buildOnly == 'yes'
-                    //         params.dockerPush == 'yes'
-                    //     }
-                    // }
-                }
-                steps {
-                    echo "Starting Sonar Scans"
-                    withSonarQubeEnv('SonarQube'){ // The name u saved in system under manage jenkins
-                        sh """
-                        mvn  sonar:sonar \
-                            -Dsonar.projectKey=i27-eureka \
-                            -Dsonar.host.url=${env.SONAR_URL} \
-                            -Dsonar.login=${SONAR_TOKEN}
-                        """
-                    }
-                    timeout (time: 2, unit: 'MINUTES'){
-                        waitForQualityGate abortPipeline: true
-                    }
-
-                }
-            }
             stage ('Docker Build and Push') {
                 when {
                     anyOf {
