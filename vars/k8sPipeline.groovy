@@ -56,8 +56,8 @@ def call(Map pipelineParams){
             //PRD_HOST_PORT = "${pipelineParams.prdHostPort}"
             HOST_PORT = "${pipelineParams.hostPort}"
             CONT_PORT = "${pipelineParams.contPort}"
-            SONAR_TOKEN = credentials('sonar_creds')
-            SONAR_URL = "http://34.55.191.104:9000"
+            // SONAR_TOKEN = credentials('sonar_creds')
+            // SONAR_URL = "http://34.55.191.104:9000"
             // https://www.jenkins.io/doc/pipeline/steps/pipeline-utility-steps/#readmavenpom-read-a-maven-project-file
             // If any errors with readMavenPom, make sure pipeline-utility-steps plugin is installed in your jenkins, if not do install it
             // http://34.139.130.208:8080/scriptApproval/
